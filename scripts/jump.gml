@@ -1,0 +1,1 @@
+grav = -jump_force;
