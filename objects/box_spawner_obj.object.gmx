@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>pos_x = view_wview / 2;
-pos_y = ((4*room_height/5)&amp;$ffffffe0)+16 ;
-block_base_width = 32;
+pos_y = floor((4*room_height/5)/64)*64;
+block_base_width = 64;
 block_min_width = 1;
 block_max_width = 1;
 jump_width = 2*block_base_width;
