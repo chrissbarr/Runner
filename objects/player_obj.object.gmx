@@ -114,8 +114,11 @@ jump_force = jump_force*1.01;
     
     
 //Reset if dead
-if(y&gt;box_spawner_obj.pos_y+200)
+if(y&gt;box_spawner_obj.pos_y+250)
+{
     room_restart();
+    highscore_add("Score",points);    
+}
     
     
 //AUTO-PILOT

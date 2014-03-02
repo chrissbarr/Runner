@@ -30,6 +30,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
+    <font>fonts\highscoreFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_box</object>
