@@ -31,7 +31,7 @@ points = 0;
 grav = 2;
 jump = false;
 move_speed = 12;
-jump_force = 20;
+jump_force = 17;
 grav_rate = 1.6;
 auto_pilot = false;
 x = view_wview / 2;
@@ -162,7 +162,7 @@ if(y&gt;box_spawner_obj.pos_y)
           <argument>
             <kind>1</kind>
             <string>//if(debug_mode)
-    auto_pilot =! auto_pilot;
+    //auto_pilot =! auto_pilot;
 </string>
           </argument>
         </arguments>
