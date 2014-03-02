@@ -7,8 +7,20 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
+    <sprite>sprites\player_stand</sprite>
+    <sprite>sprites\player_run</sprite>
+    <sprite>sprites\player_jump</sprite>
+    <sprite>sprites\player_duck</sprite>
+    <sprite>sprites\player_falling</sprite>
+    <sprite>sprites\grass_left</sprite>
+    <sprite>sprites\grass_right</sprite>
+    <sprite>sprites\grass_centre</sprite>
+    <sprite>sprites\grass_single</sprite>
+    <sprite>sprites\cloud_spr</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background_sky</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_blocks.gml</script>
@@ -24,6 +36,7 @@
     <object>objects\box_spawner_obj</object>
     <object>objects\player_obj</object>
     <object>objects\ui_obj</object>
+    <object>objects\cloud_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
