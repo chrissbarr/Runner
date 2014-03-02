@@ -57,7 +57,7 @@ spawn_blocks();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player_obj.points&gt;(spawned-10))
+            <string>if(player_obj.points&gt;(spawned-5))
     spawn_blocks();
 </string>
           </argument>

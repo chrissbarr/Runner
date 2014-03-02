@@ -88,6 +88,7 @@ if(highscore_value(1)!=0)
     draw_text(view_wport/2 - string_width(str2)/2,str1_height,str2);
 }
 
+draw_text(0,0,fps_real);
 </string>
           </argument>
         </arguments>

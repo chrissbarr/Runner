@@ -4,9 +4,9 @@
     <option_aborterrors>False</option_aborterrors>
     <option_android_GPU_device>0</option_android_GPU_device>
     <option_android_adcolony_enable_V4VC>0</option_android_adcolony_enable_V4VC>
-    <option_android_advertising_enable>0</option_android_advertising_enable>
-    <option_android_advertising_key></option_android_advertising_key>
-    <option_android_advertising_type>MoPub</option_android_advertising_type>
+    <option_android_advertising_enable>-1</option_android_advertising_enable>
+    <option_android_advertising_key>ca-app-pub-9955670677430854/5792512121|0|</option_android_advertising_key>
+    <option_android_advertising_type>AdMob</option_android_advertising_type>
     <option_android_amazon_game_circle>0</option_android_amazon_game_circle>
     <option_android_amazon_gc_achievements>-1</option_android_amazon_gc_achievements>
     <option_android_amazon_gc_leaderboards>-1</option_android_amazon_gc_leaderboards>
@@ -19,7 +19,7 @@
     <option_android_arch_mipsr2>false</option_android_arch_mipsr2>
     <option_android_arch_mipsr2sf>false</option_android_arch_mipsr2sf>
     <option_android_arch_x86>False</option_android_arch_x86>
-    <option_android_build_version>3</option_android_build_version>
+    <option_android_build_version>5</option_android_build_version>
     <option_android_color_depth>0</option_android_color_depth>
     <option_android_display_name>Runner1</option_android_display_name>
     <option_android_flurry_enable>0</option_android_flurry_enable>
@@ -50,14 +50,14 @@
     <option_android_package_company>chrisbarr</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>
     <option_android_package_product>runner</option_android_package_product>
-    <option_android_permission_flags>8</option_android_permission_flags>
+    <option_android_permission_flags>12</option_android_permission_flags>
     <option_android_pocketchange_enable>0</option_android_pocketchange_enable>
     <option_android_pocketchange_id></option_android_pocketchange_id>
     <option_android_pocketchange_test_enable>0</option_android_pocketchange_test_enable>
-    <option_android_set_device_id></option_android_set_device_id>
+    <option_android_set_device_id>14CBEC3D2FF29C598A00B116D43AAA40</option_android_set_device_id>
     <option_android_splash_png>Configs\Default\android\splash.png</option_android_splash_png>
     <option_android_texture_page>1024</option_android_texture_page>
-    <option_android_use_test_ads>0</option_android_use_test_ads>
+    <option_android_use_test_ads>-1</option_android_use_test_ads>
     <option_argumenterrors>True</option_argumenterrors>
     <option_author></option_author>
     <option_backimage>nil</option_backimage>
