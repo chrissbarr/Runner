@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_speed = 0
 image_index = round(random(3));
-y = player_obj.y+round(random(600))
+y = box_spawner_obj.pos_y-round(random(500))
 
 </string>
           </argument>
@@ -56,7 +56,7 @@ y = player_obj.y+round(random(600))
 if( x &lt; view_xview-500)
 {
 x = view_xview + view_wview + 100 + round(random(100));
-y = player_obj.y+round(random(400))-200
+y = box_spawner_obj.pos_y-round(random(500))
 image_index = round(random(3));
 }
 </string>

@@ -19,7 +19,7 @@
     <option_android_arch_mipsr2>false</option_android_arch_mipsr2>
     <option_android_arch_mipsr2sf>false</option_android_arch_mipsr2sf>
     <option_android_arch_x86>False</option_android_arch_x86>
-    <option_android_build_version>1</option_android_build_version>
+    <option_android_build_version>3</option_android_build_version>
     <option_android_color_depth>0</option_android_color_depth>
     <option_android_display_name>Runner1</option_android_display_name>
     <option_android_flurry_enable>0</option_android_flurry_enable>
@@ -45,7 +45,7 @@
     <option_android_minor_version>0</option_android_minor_version>
     <option_android_orient_landscape>true</option_android_orient_landscape>
     <option_android_orient_portrait>true</option_android_orient_portrait>
-    <option_android_orientation>2</option_android_orientation>
+    <option_android_orientation>1</option_android_orientation>
     <option_android_ouya_icon>Configs\Default\android\icons\ouyaIcon.png</option_android_ouya_icon>
     <option_android_package_company>chrisbarr</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>

@@ -144,7 +144,7 @@ if(y&gt;box_spawner_obj.pos_y)
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="65">
+    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
