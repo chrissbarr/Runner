@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\jump_snd</sound>
+    <sound>sound\land_snd</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
     <sprite>sprites\player_stand</sprite>
@@ -27,6 +30,7 @@
     <script>scripts\collision_block.gml</script>
     <script>scripts\jump_scr.gml</script>
     <script>scripts\changeSpeed.gml</script>
+    <script>scripts\view_set.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
@@ -38,6 +42,7 @@
     <object>objects\player_obj</object>
     <object>objects\ui_obj</object>
     <object>objects\cloud_obj</object>
+    <object>objects\view_manager</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

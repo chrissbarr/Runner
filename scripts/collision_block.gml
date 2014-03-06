@@ -11,10 +11,11 @@ with obj_box
         if(yy >= y - height/2 && yy <= y + height/2)
         {
             collided = true;    
-            if(touched == false)
+            other.first_falling = false;
+            if(touched == false && first == false && yy < y - height/2 +5)
             {
                 other.points+=1;   
-                other.first_falling = false;
+                audio_play_sound(land_snd,1,false);
                 view_vborder[0] = 5;
                 touched = true;
             }

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>height=32;
 width=64;
+first=false;
 touched = false;
 </string>
           </argument>

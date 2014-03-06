@@ -35,6 +35,12 @@ jump_width = 2*block_base_width;
 spawned = 0;
 
 spawn_blocks();
+
+// ----- It spawns clouds, too!
+repeat (6)
+{
+    instance_create(round(random(view_wview*3)),round(random(600)),cloud_obj)
+}
 </string>
           </argument>
         </arguments>
