@@ -43,6 +43,7 @@
     <object>objects\ui_obj</object>
     <object>objects\cloud_obj</object>
     <object>objects\view_manager</object>
+    <object>objects\score_screen_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
