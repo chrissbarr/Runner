@@ -48,22 +48,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_black);
-draw_set_font(platformFont);
-str = "Platform " + string(player_obj.points) + ", " + string(round(room_speed/30 *100)) + "% Speed";
-draw_text(view_wport/2 - string_width(str)/2,0,str);
-
-var str1_height = string_height(str);
-
-if(highscore_value(1)!=0)
+            <string>if(!instance_exists(score_screen_obj))
 {
-    str2 = "Highscore: " + string(highscore_value(1));
+    draw_set_color(c_black);
+    draw_set_font(platformFont);
+    str = "Platform " + string(player_obj.points) + ", " + string(round(room_speed/30 *100)) + "% Speed";
+    draw_text(view_wport/2 - string_width(str)/2,0,str);
+    
+    var str1_height = string_height(str);
+    
+    if(highscore_value(1)!=0)
+    {
+        str2 = "Highscore: " + string(highscore_value(1));
+        draw_set_font(highscoreFont);
+        draw_text(view_wport/2 - string_width(str2)/2,str1_height,str2);
+    }
+    
     draw_set_font(highscoreFont);
-    draw_text(view_wport/2 - string_width(str2)/2,str1_height,str2);
+    draw_text(0,0,fps_real);
 }
-
-draw_set_font(highscoreFont);
-draw_text(0,0,fps_real);
 </string>
           </argument>
         </arguments>
