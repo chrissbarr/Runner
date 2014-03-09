@@ -112,7 +112,7 @@ if(y&gt;box_spawner_obj.pos_y+250)
     if(!instance_exists(score_screen_obj))
     {
         instance_create(0,0,score_screen_obj);
-        highscore_add("Score",points); 
+        highscore_add("Score",real(points)); 
         move_speed = 0;
     }   
 }
