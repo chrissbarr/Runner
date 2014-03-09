@@ -29,12 +29,13 @@ for(i=0;i<score_digits;i++) //draw each digit using sprite
 
 var num_stars = star_score(_score); //determine how many stars score is worth
 var max_stars = 5;
+
 //now draw stars
 for (i=0; i < max_stars; i++)
 {
     var pos_x = center_x+(((2*i+1)-max_stars)/2)*(sprite_get_width(star_spr));
     var star_pos_y = pos_y + 1.4*sprite_get_height(number_spr)/2;
-    if(i+1<num_stars)
+    if(i+1<=num_stars)
         var _star_index = 0;
     else
         var _star_index = 1;

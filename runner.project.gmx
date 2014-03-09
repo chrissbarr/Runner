@@ -35,11 +35,13 @@
     <script>scripts\view_set.gml</script>
     <script>scripts\draw_score_block.gml</script>
     <script>scripts\star_score.gml</script>
+    <script>scripts\reset.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
     <font>fonts\score_font</font>
     <font>fonts\highscoreFont</font>
+    <font>fonts\button_font</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_box</object>

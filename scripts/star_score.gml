@@ -4,15 +4,15 @@
 _score = argument0;
 var _stars = 0;
 
-if(_score>5)
+if(_score>=5)
 _stars = 1;
-if(_score>20)
+if(_score>=20)
 _stars = 2;
-if(_score>50)
+if(_score>=50)
 _stars = 3;
-if(_score>100)
+if(_score>=100)
 _stars = 4;
-if(_score>150)
+if(_score>=150)
 _stars = 5;
 
 return _stars;
