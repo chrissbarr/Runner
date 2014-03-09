@@ -19,10 +19,26 @@ draw_text(x_offset,y-y_offset,score_str);     //drawing text
 var score_num_str = string(_score);
 var score_digits = string_length(score_num_str);    //score digits will hold number of digits in score
 
-for(i=0;i<score_digits;i++) //repeat for each digit
+for(i=0;i<score_digits;i++) //draw each digit using sprite
 {
     var char_num = real(string_char_at(score_num_str,i+1));
     var pos_x = center_x+(((2*i+1)-score_digits)/2)*(sprite_get_width(number_spr)-10);
-    var pos_y = y+height/10;
+    pos_y = y+height/10;
     draw_sprite(number_spr,char_num,pos_x,pos_y);
 }
+
+var num_stars = star_score(_score); //determine how many stars score is worth
+var max_stars = 5;
+//now draw stars
+for (i=0; i < max_stars; i++)
+{
+    var pos_x = center_x+(((2*i+1)-max_stars)/2)*(sprite_get_width(star_spr));
+    var star_pos_y = pos_y + 1.4*sprite_get_height(number_spr)/2;
+    if(i+1<num_stars)
+        var _star_index = 0;
+    else
+        var _star_index = 1;
+    draw_sprite(star_spr,_star_index,pos_x,star_pos_y);
+}
+
+

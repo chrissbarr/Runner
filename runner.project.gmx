@@ -21,6 +21,7 @@
     <sprite>sprites\grass_single</sprite>
     <sprite>sprites\cloud_spr</sprite>
     <sprite>sprites\number_spr</sprite>
+    <sprite>sprites\star_spr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_sky</background>
@@ -33,6 +34,7 @@
     <script>scripts\changeSpeed.gml</script>
     <script>scripts\view_set.gml</script>
     <script>scripts\draw_score_block.gml</script>
+    <script>scripts\star_score.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
