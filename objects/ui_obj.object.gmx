@@ -8,6 +8,29 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ads = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -50,6 +73,9 @@
             <kind>1</kind>
             <string>if(!instance_exists(score_screen_obj))
 {
+    ads_disable(0);
+    ads = false;
+    /* //OLD DRAW
     draw_set_color(c_black);
     draw_set_font(platformFont);
     str = "Platform " + string(player_obj.points) + ", " + string(round(room_speed/30 *100)) + "% Speed";
@@ -64,8 +90,20 @@
         draw_text(view_wport/2 - string_width(str2)/2,str1_height,str2);
     }
     
-    draw_set_font(highscoreFont);
-    draw_text(0,0,fps_real);
+    //draw_set_font(highscoreFont);
+    //draw_text(0,0,fps_real);
+    
+    */
+    
+    //New Draw
+    draw_num_spr(number_small_spr,player_obj.points,view_wview[0]/2,sprite_get_height(number_small_spr)*.75);
+}   else    {
+    if(ads == false)
+    {
+        ads = true;
+        ads_enable((display_get_gui_width()/2) - (ads_get_display_width(0)/2), 0,0);
+        ads_move((display_get_gui_width()/2) - (ads_get_display_width(0)/2), 0, 0);
+    }
 }
 </string>
           </argument>

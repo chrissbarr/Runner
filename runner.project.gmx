@@ -22,10 +22,9 @@
     <sprite>sprites\cloud_spr</sprite>
     <sprite>sprites\number_spr</sprite>
     <sprite>sprites\star_spr</sprite>
+    <sprite>sprites\number_small_spr</sprite>
   </sprites>
-  <backgrounds name="background">
-    <background>background\background_sky</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_blocks.gml</script>
@@ -36,6 +35,7 @@
     <script>scripts\draw_score_block.gml</script>
     <script>scripts\star_score.gml</script>
     <script>scripts\reset.gml</script>
+    <script>scripts\draw_num_spr.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>

@@ -137,6 +137,9 @@ if(debug_mode)
 if(y&gt;box_spawner_obj.pos_y)
     sprite_index = player_falling;
     
+//background colour
+background_color = make_color_hsv(183/360 * 255,(15/100) * 255 + points,(96 / 100) * 255 - points);
+    
 
 </string>
           </argument>
