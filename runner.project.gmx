@@ -23,6 +23,7 @@
     <sprite>sprites\number_spr</sprite>
     <sprite>sprites\star_spr</sprite>
     <sprite>sprites\number_small_spr</sprite>
+    <sprite>sprites\pause_button_spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -36,6 +37,7 @@
     <script>scripts\star_score.gml</script>
     <script>scripts\reset.gml</script>
     <script>scripts\draw_num_spr.gml</script>
+    <script>scripts\update_night.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
@@ -51,6 +53,7 @@
     <object>objects\cloud_obj</object>
     <object>objects\view_manager</object>
     <object>objects\score_screen_obj</object>
+    <object>objects\pause_button_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

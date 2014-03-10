@@ -58,8 +58,15 @@ if( x &lt; view_xview-500)
 {
 x = view_xview + view_wview + 100 + round(random(100));
 y = box_spawner_obj.pos_y-round(random(500))
+while(collision_circle(x,y,sprite_width/2,cloud_obj,false,true))
+{
+    x = view_xview + view_wview + 100 + round(random(100));
+    y = box_spawner_obj.pos_y-round(random(500))
+}
 image_index = round(random(3));
 }
+
+image_alpha = 1-(player_obj.night/100)
 </string>
           </argument>
         </arguments>
