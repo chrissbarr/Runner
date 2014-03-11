@@ -146,7 +146,7 @@ update_night();
         
     //background colour
     update_night();
-    background_color = make_color_hsv(183/360 * 255,(15/100) * 255,((96-night) / 100) * 255);
+    background_color = make_color_hsv(183/360 * 255,(15/100) * 255,round(((96-night) / 100) * 255));
     
 }   else 
 {

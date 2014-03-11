@@ -24,8 +24,12 @@
     <sprite>sprites\star_spr</sprite>
     <sprite>sprites\number_small_spr</sprite>
     <sprite>sprites\pause_button_spr</sprite>
+    <sprite>sprites\score_spr</sprite>
+    <sprite>sprites\best_spr</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background_splash</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_blocks.gml</script>
@@ -54,8 +58,12 @@
     <object>objects\view_manager</object>
     <object>objects\score_screen_obj</object>
     <object>objects\pause_button_obj</object>
+    <objects name="splash">
+      <object>objects\splash_timer_obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\room0</room>
   </rooms>
   <help>

@@ -10,10 +10,10 @@ var score_str = _title;
 var center_x = _x;
 
 
-x_offset = center_x - string_width(score_str)/2;     //centre on left half
-y_offset = height/3 + string_height(score_str)/2;   //align towards top
+x_offset = center_x;     //centre on left half
+y_offset = height/3;   //align towards top
 
-draw_text(x_offset,y-y_offset,score_str);     //drawing text
+draw_sprite(score_str,0,x_offset,y-y_offset);     //drawing text
 
 /*
 //determine how many numbers in score
