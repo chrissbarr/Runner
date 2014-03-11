@@ -113,7 +113,7 @@ draw_score_block(best_spr,highscore_value(1),x+width/4);
 if(moving==false)
 {
     //set position and size
-    var button_width = view_wview[0]/6;
+    var button_width = view_wview[0]/5;
     var button_height = view_hview[0]/10;
     var button_x = x;
     
@@ -149,8 +149,8 @@ if(moving==false)
         var _mouse_y = mouse_y - view_yview[0];
         
         //make button slightly bigger and easier to click
-        button_width += 2*border_thickness;
-        button_height += 2*border_thickness;
+        button_width += 5*border_thickness;
+        button_height += 5*border_thickness;
         
         if(    _mouse_x &gt; button_x - button_width / 2 
             &amp;&amp; _mouse_x &lt; button_x + button_width / 2

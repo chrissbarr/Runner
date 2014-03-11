@@ -6,7 +6,7 @@ var collided = false;
 
 with obj_box
 {
-    if(x - width/2 < xx && x + width/2 > xx)    //if player is near block
+    if(x - width/2 < xx && x + width/2 + 5 > xx)    //if player is near block
     {
         if(yy >= y - height/2 && yy <= y + height/2)
         {
