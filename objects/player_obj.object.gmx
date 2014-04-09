@@ -47,8 +47,10 @@ speed_rate = .5;
 max_rate = 90;
 alarm[1] = room_speed/speed_rate;
 start_x = x;
-
-
+crouched = false;
+can_crouch = true;
+crouch_time = room_speed*2;
+dead = false;
 
 night = -40;
 night_change = .05;
@@ -56,6 +58,54 @@ night_change = .05;
 var night_clamped = clamp(night,0,80);
 global.bg_color = make_color_hsv(183/360 * 255 + night_clamped / 4,(25/100) * 255 + night_clamped/2,(96-night_clamped) / 100 * 255);
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_crouch = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>crouched = false;
+can_crouch = true;
 
 </string>
           </argument>
@@ -144,7 +194,7 @@ alarm[0]=1
 {
     image_speed = 1;
     //constant motion right
-    if(!first_falling)
+    if(!first_falling &amp;&amp; !crouched &amp;&amp; !dead)
     {
         x += move_speed;
         //sprite_index = player_run;   
@@ -161,7 +211,7 @@ alarm[0]=1
     if(collision_block(x+sprite_width/2,y-sprite_height/2))
     {
         move_speed=0;
-    } else if(collision_block(x,y)) // Check for block beneath
+    } else if(collision_block(x,y) &amp;&amp; !dead) // Check for block beneath
     {
         grav=0;
         y = box_spawner_obj.pos_y-box_spawner_obj.block_base_width/2;
@@ -171,18 +221,27 @@ alarm[0]=1
     
     
     //Check for Jump
-    if((keyboard_check_pressed(vk_space) || (mouse_check_button_pressed(mb_any)) &amp;&amp; !collision_point(mouse_x,mouse_y,pause_button_obj,true,false)) &amp;&amp; grav = 0)
-        {
+    var mouse_clicked_top_half = mouse_check_button_pressed(mb_any) &amp;&amp; !collision_point(mouse_x,mouse_y,pause_button_obj,true,false) &amp;&amp; mouse_y&lt;y;
+    if((keyboard_check_pressed(vk_space) || mouse_clicked_top_half) &amp;&amp; grav = 0)
+    {
         jump_scr();
+    }
+    else if (mouse_check_button_pressed(mb_any) &amp;&amp; mouse_y&gt;=y &amp;&amp; can_crouch == true)
+    {
+        crouched = true;
+        //alarm[2]=crouch_time*10;
+    }
+        
+
+    if(crouched)
+    {
+        if(mouse_check_button_released(mb_any))
+        {
+            crouched = false;
+            alarm[2]=1;
         }
-        
-    //Increase Speeds
-    /*
-    move_speed = move_speed*1.01;
-    grav_rate = grav_rate*1.01;
-    jump_force = jump_force*1.01;
-    */
-        
+        sprite_index = player_duck;
+    }
         
     //Reset if dead
     if(y&gt;box_spawner_obj.pos_y+250)

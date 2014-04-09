@@ -29,6 +29,43 @@
 width=64;
 first=false;
 touched = false;
+bee_height = sprite_get_height(grass_centre)/2 + sprite_get_height(player_run);
+alarm[0]=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var base_width = box_spawner_obj.block_base_width
+var num = width / base_width;
+
+if(num&gt;=4)
+{
+    var chance = irandom(3)
+    if(chance == 3)
+    {
+        bee = instance_create(x,y-bee_height,bee_obj);
+        bee.left_bound = x - width/2 + base_width;
+        bee.right_bound = x + width/2 - base_width;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -100,6 +137,15 @@ if(num == 4)
     draw_sprite(grass_left,-1,x-width/2+base_width/2,y);
     draw_sprite(grass_centre,-1,x-base_width/2,y);
     draw_sprite(grass_centre,-1,x+base_width/2,y);
+    draw_sprite(grass_right,-1,x+width/2-base_width/2,y);
+}
+
+if(num == 5)
+{
+    draw_sprite(grass_left,-1,x-width/2+base_width/2,y);
+    draw_sprite(grass_centre,-1,x-base_width,y);
+    draw_sprite(grass_centre,-1,x,y);
+    draw_sprite(grass_centre,-1,x+base_width,y);
     draw_sprite(grass_right,-1,x+width/2-base_width/2,y);
 }
 </string>
