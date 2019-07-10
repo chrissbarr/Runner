@@ -27,6 +27,7 @@
     <sprite>sprites\score_spr</sprite>
     <sprite>sprites\best_spr</sprite>
     <sprite>sprites\bee_spr</sprite>
+    <sprite>sprites\dec_blo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_splash</background>
@@ -62,7 +63,10 @@
     <objects name="splash">
       <object>objects\splash_timer_obj</object>
     </objects>
-    <object>objects\bee_obj</object>
+    <objects name="enemies">
+      <object>objects\bee_obj</object>
+      <object>objects\dec_block_obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

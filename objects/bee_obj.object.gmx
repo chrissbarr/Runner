@@ -98,7 +98,8 @@ x+= move_speed * move_dir;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index,image_index,x,y,-move_dir,1,0,c_white,1);
+            <string>image_xscale = -move_dir;
+draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,1,0,c_white,1);
 </string>
           </argument>
         </arguments>

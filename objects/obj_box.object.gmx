@@ -53,19 +53,23 @@ alarm[0]=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var base_width = box_spawner_obj.block_base_width
-var num = width / base_width;
-
-if(num&gt;=4)
+            <string>if(num&gt;=3)
 {
-    var chance = irandom(3)
-    if(chance == 3)
+    var base_width = box_spawner_obj.block_base_width;
+    var block = player_obj.points;
+    var chance = irandom(3);
+    if(chance == 1 &amp;&amp; block &gt; 15 &amp;&amp; num &gt;=4)
     {
         bee = instance_create(x,y-bee_height,bee_obj);
         bee.left_bound = x - width/2 + base_width;
         bee.right_bound = x + width/2 - base_width;
     }
+    else if (chance == 2 &amp;&amp; block &gt; 25)
+    {
+        dec_block = instance_create(x,y,dec_block_obj);
+    }
 }
+
 </string>
           </argument>
         </arguments>

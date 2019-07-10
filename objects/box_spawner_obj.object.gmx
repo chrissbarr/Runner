@@ -68,6 +68,11 @@ repeat (6)
     
 if(player_obj.points&gt;15)
 {
+    block_max_width = 3;
+}
+
+if(player_obj.points&gt;25)
+{
     block_max_width = 4;
 }
 </string>
