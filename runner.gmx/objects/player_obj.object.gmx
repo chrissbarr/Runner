@@ -190,7 +190,20 @@ alarm[0]=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.paused != true)
+            <string>// debugging controls
+if(M_DEBUG) {
+    // toggle autopilot mode
+    if (keyboard_check_pressed(ord('A'))) {
+        auto_pilot =! auto_pilot;
+    }
+    
+    // reset highscore
+    if (keyboard_check_pressed(ord('R'))) {
+        highscore_clear();
+    }    
+}
+
+if(global.paused != true)
 {
     image_speed = 1;
     //constant motion right
@@ -277,56 +290,8 @@ alarm[0]=1
    
 }   else 
 {
-image_speed = 0;
+    image_speed = 0;
 }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="82">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>highscore_clear();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="65">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//if(debug_mode)
-    auto_pilot =! auto_pilot;
 </string>
           </argument>
         </arguments>
