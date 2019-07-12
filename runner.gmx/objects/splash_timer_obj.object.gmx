@@ -76,7 +76,12 @@ alarm[0]=1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(brightness);
+            <string>draw_set_alpha(1);
+draw_set_color(c_black);
+draw_set_font(version_font);
+draw_text(room_width - string_width(M_VERSION),room_height - string_height(M_VERSION), M_VERSION);
+
+draw_set_alpha(brightness);
 draw_set_color(c_black);
 draw_rectangle(0,0,room_width,room_height,false);
 </string>

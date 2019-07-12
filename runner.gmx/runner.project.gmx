@@ -49,6 +49,7 @@
     <font>fonts\score_font</font>
     <font>fonts\highscoreFont</font>
     <font>fonts\button_font</font>
+    <font>fonts\version_font</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_box</object>
