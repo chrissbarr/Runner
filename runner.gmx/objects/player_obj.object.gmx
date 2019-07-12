@@ -30,10 +30,10 @@ instance_create(0,0,ui_obj);
 instance_create(0,0,box_spawner_obj);
 instance_create(0,0,pause_button_obj);
 
-alarm[0]=1;
+alarm[0] = 1;
 
 size = 64;
-first_falling=true;
+first_falling = true;
 points = 0;
 grav = 2;
 jump = false;
@@ -43,22 +43,20 @@ grav_rate = 1.6;
 auto_pilot = false;
 x = view_wview / 2;
 y = 2 * room_height / 5 ;
-speed_rate = .5;
+speed_rate = 0.5;
 max_rate = 90;
-alarm[1] = room_speed/speed_rate;
+alarm[1] = room_speed / speed_rate;
 start_x = x;
 crouched = false;
 can_crouch = true;
-crouch_time = room_speed*2;
+crouch_time = room_speed * 2;
 dead = false;
 
 night = -40;
 night_change = .05;
 
-var night_clamped = clamp(night,0,80);
-global.bg_color = make_color_hsv(183/360 * 255 + night_clamped / 4,(25/100) * 255 + night_clamped/2,(96-night_clamped) / 100 * 255);
-
-
+var night_clamped = clamp(night, 0, 80);
+global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100) * 255 + night_clamped / 2, (96 - night_clamped) / 100 * 255);
 </string>
           </argument>
         </arguments>
@@ -131,10 +129,11 @@ can_crouch = true;
             <kind>1</kind>
             <string>room_speed += 1;
 
-if(room_speed&gt;max_rate)
+if (room_speed &gt; max_rate) {
     room_speed = max_rate;
+}
 
-alarm[1]=room_speed/speed_rate;
+alarm[1] = room_speed / speed_rate;
 </string>
           </argument>
         </arguments>
@@ -157,15 +156,15 @@ alarm[1]=room_speed/speed_rate;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-night += night_change;
+            <string>night += night_change;
 
-if(night&gt;=120 || night &lt;= -50)
+if(night &gt;= 120 || night &lt;= -50) {
     night_change =- night_change;
+}
     
-var night_clamped = clamp(night,0,80);
+var night_clamped = clamp(night, 0, 80);
     
-global.bg_color = make_color_hsv(183/360 * 255 + night_clamped / 4,(25/100) * 255 + night_clamped/2,(96-night_clamped) / 100 * 255);
+global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100) * 255 + night_clamped / 2, (96 - night_clamped) / 100 * 255);
 
 alarm[0]=1
 </string>
@@ -190,74 +189,55 @@ alarm[0]=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// debugging controls
-if(M_DEBUG) {
-    // toggle autopilot mode
-    if (keyboard_check_pressed(ord('A'))) {
-        auto_pilot =! auto_pilot;
-    }
-    
-    // reset highscore
-    if (keyboard_check_pressed(ord('R'))) {
-        highscore_clear();
-    }    
-}
-
-if(global.paused != true)
+            <string>if (global.paused != true)
 {
     image_speed = 1;
-    //constant motion right
-    if(!first_falling &amp;&amp; !crouched &amp;&amp; !dead)
+    
+    // constant motion right
+    if (!first_falling &amp;&amp; !crouched &amp;&amp; !dead)
     {
-        x += move_speed;
-        //sprite_index = player_run;   
+        x += move_speed; 
     }
     
-    // Apply gravity (and jumping)
-    y = y+grav;
-    grav+=grav_rate;
-    if( grav&gt;=20 ) grav=20;
-    
-    
-    
-    // Check for block to right
-    if(collision_block(x+sprite_width/2,y-sprite_height/2))
+    // apply gravity (and jumping)
+    y = y + grav;
+    grav += grav_rate;
+    if (grav &gt;= 20) 
     {
-        move_speed=0;
-    } else if(collision_block(x,y) &amp;&amp; !dead) // Check for block beneath
+        grav = 20;
+    }
+    
+    // check for block to right
+    if (collision_block(x + sprite_width / 2, y - sprite_height / 2))
     {
-        grav=0;
-        y = box_spawner_obj.pos_y-box_spawner_obj.block_base_width/2;
+        move_speed = 0;
+    } 
+    else if (collision_block(x, y) &amp;&amp; !dead) // Check for block beneath
+    {
+        grav = 0;
+        y = box_spawner_obj.pos_y - box_spawner_obj.block_base_width / 2;
         sprite_index = player_run;
-    }
+    }    
     
-    
-    
-    //Check for Jump
-    var mouse_clicked_top_half = mouse_check_button_pressed(mb_any) &amp;&amp; !collision_point(mouse_x,mouse_y,pause_button_obj,true,false) &amp;&amp; mouse_y&lt;y;
-    if((keyboard_check_pressed(vk_space) || mouse_clicked_top_half) &amp;&amp; grav = 0)
+    // check for Jump
+    var mouse_clicked_top_half = mouse_check_button_pressed(mb_any) &amp;&amp; !collision_point(mouse_x, mouse_y, pause_button_obj, true, false);
+    if ((keyboard_check_pressed(vk_space) || mouse_clicked_top_half) &amp;&amp; grav == 0)
     {
         jump_scr();
-    }
-    else if (mouse_check_button_pressed(mb_any) &amp;&amp; mouse_y&gt;=y &amp;&amp; can_crouch == true)
-    {
-        crouched = true;
-        //alarm[2]=crouch_time*10;
-    }
-        
+    }        
 
-    if(crouched)
+    if (crouched)
     {
-        if(mouse_check_button_released(mb_any))
+        if (mouse_check_button_released(mb_any))
         {
             crouched = false;
-            alarm[2]=1;
+            alarm[2] = 1;
         }
         sprite_index = player_duck;
     }
         
-    //Reset if dead
-    if(y&gt;box_spawner_obj.pos_y+250)
+    // reset if dead
+    if (y &gt; box_spawner_obj.pos_y + 250)
     {
         if(!instance_exists(score_screen_obj))
         {
@@ -265,56 +245,53 @@ if(global.paused != true)
             highscore_add("Score",real(points)); 
             move_speed = 0;
         }   
-    }
-        
-        
-    //AUTO-PILOT
-    if(auto_pilot)
-    {
-        if(!collision_block(x+15,y+1)  &amp;&amp; grav = 0)
-            jump_scr();
-    }
+    } 
     
-    if(debug_mode)
+    // check if the player is falling
+    if (y &gt; box_spawner_obj.pos_y) 
     {
-        if(keyboard_check_pressed(vk_right))
-            room_speed += 30;
-        if(keyboard_check_pressed(vk_left))
-            room_speed -= 30;
-    }
-    
-    //Check if the player is falling
-    if(y&gt;box_spawner_obj.pos_y)
         sprite_index = player_falling;
+    }
+      
+    // debugging behaviour
+    if (M_DEBUG) 
+    {      
+        // toggle autopilot mode
+        if (keyboard_check_pressed(ord('A'))) 
+        {
+            auto_pilot =! auto_pilot;
+        }
         
-   
-}   else 
+        // reset highscore
+        if (keyboard_check_pressed(ord('R'))) 
+        {
+            highscore_clear();
+        }    
+        
+        if (keyboard_check_pressed(vk_right)) 
+        {
+            room_speed += 30;
+        }
+        
+        if (keyboard_check_pressed(vk_left))
+        {
+            room_speed -= 30;
+        }
+        
+        // autopilot
+        if (auto_pilot)
+        {
+            if (!collision_block(x + 15, y + 1) &amp;&amp; grav == 0) 
+            {        
+                jump_scr();
+            }
+        }
+    }    
+}   
+else 
 {
     image_speed = 0;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_speed=room_speed*2
 </string>
           </argument>
         </arguments>
