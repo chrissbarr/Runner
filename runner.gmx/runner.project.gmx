@@ -36,13 +36,11 @@
     <script>scripts\spawn_blocks.gml</script>
     <script>scripts\collision_block.gml</script>
     <script>scripts\jump_scr.gml</script>
-    <script>scripts\changeSpeed.gml</script>
     <script>scripts\view_set.gml</script>
     <script>scripts\draw_score_block.gml</script>
     <script>scripts\star_score.gml</script>
     <script>scripts\reset.gml</script>
     <script>scripts\draw_num_spr.gml</script>
-    <script>scripts\update_night.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
@@ -52,7 +50,7 @@
     <font>fonts\version_font</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_box</object>
+    <object>objects\box_obj</object>
     <object>objects\box_spawner_obj</object>
     <object>objects\player_obj</object>
     <object>objects\ui_obj</object>
@@ -60,10 +58,11 @@
     <object>objects\view_manager</object>
     <object>objects\score_screen_obj</object>
     <object>objects\pause_button_obj</object>
+    <object>objects\bee_obj</object>
+    <object>objects\game_manager_obj</object>
     <objects name="splash">
       <object>objects\splash_timer_obj</object>
     </objects>
-    <object>objects\bee_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

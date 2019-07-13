@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>pos_x = view_wview / 2;
-pos_y = floor((4*room_height/5)/64)*64;
+pos_y = floor((4 * room_height / 5) / 64) * 64;
 block_base_width = 140;
 block_min_width = 1;
 block_max_width = 2;
-jump_width = 2*block_base_width;
+jump_width = 2 * block_base_width;
 
 spawned = 0;
 
@@ -63,10 +63,11 @@ repeat (6)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player_obj.x&gt;=pos_x-view_wview[0])
+            <string>if (player_obj.x &gt;= pos_x - view_wview[0]) {
     spawn_blocks();
+}
     
-if(player_obj.points&gt;15)
+if (player_obj.points &gt; 15)
 {
     block_max_width = 4;
 }
