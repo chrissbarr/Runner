@@ -25,15 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_wview[0]/2;
+            <string>x = view_wview[0] / 2;
 y = -300;
-button_y = room_height*1.2;
+button_y = room_height * 1.2;
 room_speed = 30;
-background_brown_colour = make_color_rgb(201,152,105);
-dark_brown_colour = make_color_rgb(83,71,65);
-width = view_wview[0]*.8;
-height = view_hview[0]*.58;
-moving=true;
+background_brown_colour = make_color_rgb(201, 152, 105);
+dark_brown_colour = make_color_rgb(83, 71, 65);
+width = view_wview[0] * 0.8;
+height = view_hview[0] * 0.58;
+moving = true;
 </string>
           </argument>
         </arguments>
@@ -56,16 +56,20 @@ moving=true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var desired_y = 0.45*view_hview[0]
-if (y &lt; desired_y)
-    y += round ((desired_y - y)/4);
+            <string>var desired_y = 0.45 * view_hview[0];
+if (y &lt; desired_y) {
+    y += round ((desired_y - y) / 4);
+}
 
-if(abs(y-yprevious)&lt;10)
+if(abs(y - yprevious) &lt; 10) 
+{
     moving = false;
+}
     
-var desired_y = y + 1.4*height/2;
-if(moving == false &amp;&amp; button_y &gt; desired_y)
-    button_y -= round ((button_y - desired_y)/4);
+var desired_y = y + 1.4 * height / 2;
+if(moving == false &amp;&amp; button_y &gt; desired_y) {
+    button_y -= round ((button_y - desired_y) / 4);
+}
 </string>
           </argument>
         </arguments>
@@ -89,32 +93,32 @@ if(moving == false &amp;&amp; button_y &gt; desired_y)
           <argument>
             <kind>1</kind>
             <string>// Set thickness for box outline
-var border_thickness = width/100;;
+var border_thickness = width / 100;
 
-width+=border_thickness;
-height+=border_thickness;
+width += border_thickness;
+height += border_thickness;
 
 //draw darker outline
 draw_set_color(dark_brown_colour);
-draw_rectangle(x-width/2,y-height/2,x+width/2,y+height/2,false);
+draw_rectangle(x - width / 2, y - height / 2, x + width / 2, y + height / 2, false);
 
-width-=border_thickness;
-height-=border_thickness;
+width -= border_thickness;
+height -= border_thickness;
 
 //draw main box background
 draw_set_color(background_brown_colour);
-draw_rectangle(x-width/2,y-height/2,x+width/2,y+height/2,false);
+draw_rectangle(x - width / 2, y - height / 2, x + width / 2, y + height / 2, false);
 
 //draw current score and high score displays
-draw_score_block(score_spr,player_obj.points,x-width/4);
-draw_score_block(best_spr,highscore_value(1),x+width/4);
+draw_score_block(score_spr, player_obj.points, x - width / 4);
+draw_score_block(best_spr, highscore_value(1), x + width / 4);
 
 //------------------draw OK button-------------//
-if(moving==false)
+if (moving == false)
 {
     //set position and size
-    var button_width = view_wview[0]/5;
-    var button_height = view_hview[0]/10;
+    var button_width = view_wview[0] / 5;
+    var button_height = view_hview[0] / 10;
     var button_x = x;
     
     //draw dark border
@@ -140,7 +144,7 @@ if(moving==false)
     draw_set_font(button_font);
     draw_set_color(dark_brown_colour);
     var button_str = "ok";
-    draw_text(button_x - string_width(button_str)/2, button_y - string_height(button_str)/2, button_str);
+    draw_text(button_x - string_width(button_str) / 2, button_y - string_height(button_str) / 2, button_str);
 
     //check for mouse press
     if(mouse_check_button_pressed(mb_left)) //if pressed, check for within button...
@@ -149,8 +153,8 @@ if(moving==false)
         var _mouse_y = mouse_y - view_yview[0];
         
         //make button slightly bigger and easier to click
-        button_width += 5*border_thickness;
-        button_height += 5*border_thickness;
+        button_width += 5 * border_thickness;
+        button_height += 5 * border_thickness;
         
         if(    _mouse_x &gt; button_x - button_width / 2 
             &amp;&amp; _mouse_x &lt; button_x + button_width / 2
@@ -159,7 +163,6 @@ if(moving==false)
             reset();
     }
 }
-
 </string>
           </argument>
         </arguments>

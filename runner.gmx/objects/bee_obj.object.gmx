@@ -49,10 +49,11 @@ move_dir = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(x&lt;left_bound || x&gt;right_bound)
+            <string>if (x &lt; left_bound || x &gt; right_bound) {
     move_dir = -move_dir;
+}
     
-x+= move_speed * move_dir;
+x += move_speed * move_dir;
 </string>
           </argument>
         </arguments>
@@ -98,7 +99,7 @@ x+= move_speed * move_dir;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index,image_index,x,y,-move_dir,1,0,c_white,1);
+            <string>draw_sprite_ext(sprite_index, image_index, x, y, -move_dir, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

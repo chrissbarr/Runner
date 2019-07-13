@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0
-image_index = round(random(3));
-y = box_spawner_obj.pos_y-round(random(500))
+            <string>image_speed = 0;
+image_index = round(random(image_number));
+y = box_spawner_obj.pos_y - round(random(500));
 
 </string>
           </argument>
@@ -51,22 +51,18 @@ y = box_spawner_obj.pos_y-round(random(500))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player_obj.x != player_obj.xprevious)
-    x += player_obj.move_speed *.2;
-
-if( x &lt; view_xview-500)
+            <string>if (x &lt; view_xview - sprite_width)
 {
-x = view_xview + view_wview + 100 + round(random(100));
-y = box_spawner_obj.pos_y-round(random(500))
-while(collision_circle(x,y,sprite_width/2,cloud_obj,false,true))
-{
-    x = view_xview + view_wview + 100 + round(random(100));
-    y = box_spawner_obj.pos_y-round(random(500))
-}
-image_index = round(random(3));
+    do {
+        x = view_xview + view_wview + sprite_width + round(random(200));
+        y = round(random(box_spawner_obj.pos_y));
+    }
+    until (collision_circle(x, y, sprite_width, cloud_obj, false, true) == noone);
+    
+    image_index = round(random(image_number));
 }
 
-image_alpha = 1-(player_obj.night/100)
+image_alpha = 1 - (game_manager_obj.night / 100);
 </string>
           </argument>
         </arguments>

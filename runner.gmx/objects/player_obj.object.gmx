@@ -25,14 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0,0,view_manager);
-instance_create(0,0,ui_obj);
-instance_create(0,0,box_spawner_obj);
-instance_create(0,0,pause_button_obj);
-
-alarm[0] = 1;
-
-size = 64;
+            <string>size = 64;
 first_falling = true;
 points = 0;
 grav = 2;
@@ -41,22 +34,11 @@ move_speed = 12;
 jump_force = 18;
 grav_rate = 1.6;
 auto_pilot = false;
-x = view_wview / 2;
-y = 2 * room_height / 5 ;
-speed_rate = 0.5;
-max_rate = 90;
-alarm[1] = room_speed / speed_rate;
 start_x = x;
 crouched = false;
 can_crouch = true;
 crouch_time = room_speed * 2;
 dead = false;
-
-night = -40;
-night_change = .05;
-
-var night_clamped = clamp(night, 0, 80);
-global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100) * 255 + night_clamped / 2, (96 - night_clamped) / 100 * 255);
 </string>
           </argument>
         </arguments>
@@ -105,68 +87,6 @@ global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100)
             <string>crouched = false;
 can_crouch = true;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_speed += 1;
-
-if (room_speed &gt; max_rate) {
-    room_speed = max_rate;
-}
-
-alarm[1] = room_speed / speed_rate;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>night += night_change;
-
-if(night &gt;= 120 || night &lt;= -50) {
-    night_change =- night_change;
-}
-    
-var night_clamped = clamp(night, 0, 80);
-    
-global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100) * 255 + night_clamped / 2, (96 - night_clamped) / 100 * 255);
-
-alarm[0]=1
 </string>
           </argument>
         </arguments>
@@ -239,12 +159,8 @@ alarm[0]=1
     // reset if dead
     if (y &gt; box_spawner_obj.pos_y + 250)
     {
-        if(!instance_exists(score_screen_obj))
-        {
-            instance_create(0,0,score_screen_obj);
-            highscore_add("Score",real(points)); 
-            move_speed = 0;
-        }   
+        dead = true; 
+        move_speed = 0;
     } 
     
     // check if the player is falling
@@ -260,22 +176,6 @@ alarm[0]=1
         if (keyboard_check_pressed(ord('A'))) 
         {
             auto_pilot =! auto_pilot;
-        }
-        
-        // reset highscore
-        if (keyboard_check_pressed(ord('R'))) 
-        {
-            highscore_clear();
-        }    
-        
-        if (keyboard_check_pressed(vk_right)) 
-        {
-            room_speed += 30;
-        }
-        
-        if (keyboard_check_pressed(vk_left))
-        {
-            room_speed -= 30;
         }
         
         // autopilot
