@@ -25,13 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(0, 0, view_manager);
-instance_create(0, 0, ui_obj);
-instance_create(0, 0, box_spawner_obj);
-instance_create(0, 0, pause_button_obj);
-instance_create(0, 0, game_manager_obj);
-
-size = 64;
+            <string>size = 64;
 first_falling = true;
 points = 0;
 grav = 2;
@@ -40,8 +34,6 @@ move_speed = 12;
 jump_force = 18;
 grav_rate = 1.6;
 auto_pilot = false;
-x = view_wview / 2;
-y = 2 * room_height / 5 ;
 start_x = x;
 crouched = false;
 can_crouch = true;
@@ -167,12 +159,8 @@ can_crouch = true;
     // reset if dead
     if (y &gt; box_spawner_obj.pos_y + 250)
     {
-        if(!instance_exists(score_screen_obj))
-        {
-            instance_create(0,0,score_screen_obj);
-            highscore_add("Score",real(points)); 
-            move_speed = 0;
-        }   
+        dead = true; 
+        move_speed = 0;
     } 
     
     // check if the player is falling

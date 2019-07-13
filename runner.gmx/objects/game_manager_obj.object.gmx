@@ -32,7 +32,19 @@ night_change = 0.05;
 
 game_speed_rate = 0.5;
 game_speed_max = 90;
-game_speed = room_speed;
+game_speed_default = 30;
+game_speed = game_speed_default;
+
+instance_create(0, 0, view_manager);
+instance_create(0, 0, ui_obj);
+instance_create(0, 0, box_spawner_obj);
+button_pause = instance_create(0, 0, pause_button_obj);
+player = instance_create(view_wview / 2, 2 * room_height / 5, player_obj);
+
+repeat (6)
+{
+    instance_create(round(random(view_wview * 3)), round(random(600)), cloud_obj);
+}
 </string>
           </argument>
         </arguments>
@@ -66,12 +78,23 @@ game_speed = room_speed;
     var night_clamped = clamp(night, 0, 80);        
     global.bg_color = make_color_hsv(183 / 360 * 255 + night_clamped / 4, (25 / 100) * 255 + night_clamped / 2, (96 - night_clamped) / 100 * 255);
 
-    game_speed += game_speed_rate / room_speed;
-    room_speed = round(game_speed);
-    
-    if (room_speed &gt; game_speed_max) {
-        room_speed = game_speed_max;
+    if (game_speed &lt; game_speed_max) 
+    {
+        game_speed += game_speed_rate / room_speed;
     }
+    
+    room_speed = clamp(round(game_speed), 5, 300);    
+}
+
+if (player.dead) 
+{
+    if (!instance_exists(score_screen_obj))
+    {
+        instance_create(0, 0, score_screen_obj);
+        highscore_add("Score", real(player.points)); 
+        instance_deactivate_object(button_pause);
+        game_speed = game_speed_default;
+    }  
 }
 
 if (M_DEBUG) {
@@ -88,12 +111,12 @@ if (M_DEBUG) {
     
     if (keyboard_check_pressed(vk_right)) 
     {
-        game_speed += 30;
+        game_speed += 10;
     }
     
     if (keyboard_check_pressed(vk_left))
     {
-        game_speed -= 30;
+        game_speed -= 10;
     }
 }
     
@@ -129,6 +152,9 @@ if (M_DEBUG) {
     
     var str = "Speed: " + string(room_speed);
     draw_text(view_wview[0] - string_width(str), view_hview[0] - string_height(str) * 2, str);
+    
+    var str = "FPS: " + string(fps);
+    draw_text(view_wview[0] - string_width(str), view_hview[0] - string_height(str) * 3, str);
 }
 </string>
           </argument>
