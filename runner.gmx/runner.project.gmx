@@ -9,7 +9,6 @@
     <sound>sound\land_snd</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
     <sprite>sprites\player_stand</sprite>
     <sprite>sprites\player_run</sprite>
     <sprite>sprites\player_jump</sprite>
