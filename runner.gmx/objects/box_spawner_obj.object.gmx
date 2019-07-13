@@ -39,7 +39,7 @@ spawn_blocks();
 // ----- It spawns clouds, too!
 repeat (6)
 {
-    instance_create(round(random(view_wview*3)),round(random(600)),cloud_obj)
+    instance_create(round(random(view_wview * 3)), round(random(600)), cloud_obj);
 }
 </string>
           </argument>
