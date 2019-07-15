@@ -62,6 +62,7 @@
     <objects name="splash">
       <object>objects\splash_timer_obj</object>
     </objects>
+    <object>objects\init_globals_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

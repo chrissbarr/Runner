@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.debug_draw = false;
-
-night = -40;
+            <string>night = -40;
 night_change = 0.05;
 
 game_speed_rate = 0.5;
@@ -144,17 +142,24 @@ if (M_DEBUG) {
             <kind>1</kind>
             <string>if (global.debug_draw) 
 {
-    draw_set_color(c_black);
+    
     draw_set_font(version_font);
     
-    var str = M_VERSION;
-    draw_text(view_wview[0] - string_width(str), view_hview[0] - string_height(str), str);
+    var debugString = "";
     
-    var str = "Speed: " + string(room_speed);
-    draw_text(view_wview[0] - string_width(str), view_hview[0] - string_height(str) * 2, str);
+    debugString += "FPS: " + string(fps) + "#";
+    debugString += "Speed: " + string(room_speed) + "#";
+    debugString += "Version: " + string(M_VERSION) + "#";
     
-    var str = "FPS: " + string(fps);
-    draw_text(view_wview[0] - string_width(str), view_hview[0] - string_height(str) * 3, str);
+    draw_set_color(c_black);
+    draw_set_alpha(0.8);
+    draw_rectangle(view_wview[0] - string_width(debugString), view_hview[0] - string_height(debugString), view_wview[0], view_hview[0], false);
+    
+    draw_set_color(c_white);
+    draw_set_alpha(1.0);
+    draw_set_halign(fa_right);
+    draw_set_valign(fa_bottom);
+    draw_text(view_wview[0], view_hview[0], debugString);
 }
 </string>
           </argument>
