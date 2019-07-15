@@ -51,7 +51,11 @@ y = box_spawner_obj.pos_y - round(random(500));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (x &lt; view_xview - sprite_width)
+            <string>if (player_obj.x != player_obj.xprevious) {
+    x += player_obj.move_speed * 0.2;
+}
+
+if (x &lt; view_xview - sprite_width)
 {
     do {
         x = view_xview + view_wview + sprite_width + round(random(200));
