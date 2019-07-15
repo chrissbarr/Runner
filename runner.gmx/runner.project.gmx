@@ -39,6 +39,7 @@
     <script>scripts\star_score.gml</script>
     <script>scripts\reset.gml</script>
     <script>scripts\draw_num_spr.gml</script>
+    <script>scripts\position_cloud_in_area.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\platformFont</font>
@@ -48,8 +49,8 @@
     <font>fonts\version_font</font>
   </fonts>
   <objects name="objects">
-    <object>objects\box_obj</object>
-    <object>objects\box_spawner_obj</object>
+    <object>objects\block_obj</object>
+    <object>objects\block_spawner_obj</object>
     <object>objects\player_obj</object>
     <object>objects\ui_obj</object>
     <object>objects\cloud_obj</object>

@@ -133,7 +133,7 @@ can_crouch = true;
     }
 
     // check for block underneath
-    var block = collision_line(x - feet_width / 2, y, x + feet_width / 2, y, box_obj, false, false);
+    var block = collision_line(x - feet_width / 2, y, x + feet_width / 2, y, block_obj, false, false);
     if (block != noone &amp;&amp; !dead)
     {
         first_falling = false;
@@ -152,7 +152,7 @@ can_crouch = true;
     }  
     
     // check for block to right
-    if (collision_line(x + sprite_width / 2, y - 25, x + sprite_width / 2, y - sprite_height, box_obj, false, false) &amp;&amp; !dead) // Check for block beneath
+    if (collision_line(x + sprite_width / 2, y - 25, x + sprite_width / 2, y - sprite_height, block_obj, false, false) &amp;&amp; !dead) // Check for block beneath
     {
         move_speed = 0;
     }   
@@ -207,7 +207,7 @@ can_crouch = true;
         // autopilot
         if (auto_pilot)
         {
-            if (!collision_point(x + 15, y + 1, box_obj, false, false) &amp;&amp; grav == 0) 
+            if (!collision_point(x + 15, y + 1, block_obj, false, false) &amp;&amp; grav == 0) 
             {        
                 jump_scr();
             }

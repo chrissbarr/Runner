@@ -33,15 +33,28 @@ game_speed_max = 90;
 game_speed_default = 30;
 game_speed = game_speed_default;
 
+platform_spawn_x = view_wview / 2;
+platform_spawn_y = floor((4 * room_height / 5) / 64) * 64;
+
+clouds_y_min = 100;
+clouds_y_max = platform_spawn_y - 100;
+
 instance_create(0, 0, view_manager);
 instance_create(0, 0, ui_obj);
-instance_create(0, 0, box_spawner_obj);
+instance_create(platform_spawn_x, platform_spawn_y, block_spawner_obj);
 button_pause = instance_create(0, 0, pause_button_obj);
 player = instance_create(view_wview / 2, 2 * room_height / 5, player_obj);
 
 repeat (6)
 {
-    instance_create(round(random(view_wview * 3)), round(random(600)), cloud_obj);
+    var cloud = instance_create(round(random(view_wview * 3)), 0, cloud_obj);
+    cloud.ymin = clouds_y_min;
+    cloud.ymax = clouds_y_max;
+    
+    with (cloud) 
+    {
+       position_cloud_in_area(view_xview, view_xview + view_wview * 2, ymin, ymax); 
+    }
 }
 </string>
           </argument>

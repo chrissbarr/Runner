@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>image_speed = 0;
 image_index = round(random(image_number));
-y = box_spawner_obj.pos_y - round(random(500));
-
+ymin = 0;
+ymax = 0;
 </string>
           </argument>
         </arguments>
@@ -57,12 +57,7 @@ y = box_spawner_obj.pos_y - round(random(500));
 
 if (x &lt; view_xview - sprite_width)
 {
-    do {
-        x = view_xview + view_wview + sprite_width + round(random(200));
-        y = round(random(box_spawner_obj.pos_y));
-    }
-    until (collision_circle(x, y, sprite_width, cloud_obj, false, true) == noone);
-    
+    position_cloud_in_area(view_xview + view_wview + sprite_width, view_xview + view_wview * 3 + sprite_width, ymin, ymax);
     image_index = round(random(image_number));
 }
 

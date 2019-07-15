@@ -75,8 +75,8 @@ platform_num = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var blockOnRight = collision_point(x + sprite_width, y, box_obj, false, true);
-var blockOnLeft =  collision_point(x - sprite_width, y, box_obj, false, true);
+            <string>var blockOnRight = collision_point(x + sprite_width, y, object_index, false, true);
+var blockOnLeft =  collision_point(x - sprite_width, y, object_index, false, true);
 
 if (blockOnLeft and blockOnRight)
 {
