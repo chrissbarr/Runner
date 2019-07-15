@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>size = 64;
-first_falling = true;
+            <string>first_falling = true;
 points = 0;
 grav = 2;
 jump = false;
@@ -39,6 +38,12 @@ crouched = false;
 can_crouch = true;
 crouch_time = room_speed * 2;
 dead = false;
+feet_width = 25;
+prev_platform_num = 0;
+
+last_block_touched = noone;
+y_falling = room_height;
+y_death = y_falling;
 </string>
           </argument>
         </arguments>
@@ -126,18 +131,31 @@ can_crouch = true;
     {
         grav = 20;
     }
+
+    // check for block underneath
+    var block = collision_line(x - feet_width / 2, y, x + feet_width / 2, y, box_obj, false, false);
+    if (block != noone &amp;&amp; !dead)
+    {
+        first_falling = false;
+        grav = 0;
+        y = block.y - block.sprite_height / 2;
+        sprite_index = player_run;
+        
+        if (block.platform_num != prev_platform_num) 
+        {
+            points += 1;
+            audio_play_sound(land_snd, 1, false);
+            prev_platform_num = block.platform_num;
+        } 
+        
+        last_block_touched = block;
+    }  
     
     // check for block to right
-    if (collision_block(x + sprite_width / 2, y - sprite_height / 2))
+    if (collision_line(x + sprite_width / 2, y - 25, x + sprite_width / 2, y - sprite_height, box_obj, false, false) &amp;&amp; !dead) // Check for block beneath
     {
         move_speed = 0;
-    } 
-    else if (collision_block(x, y) &amp;&amp; !dead) // Check for block beneath
-    {
-        grav = 0;
-        y = box_spawner_obj.pos_y - box_spawner_obj.block_base_width / 2;
-        sprite_index = player_run;
-    }    
+    }   
     
     // check for Jump
     var mouse_clicked_top_half = mouse_check_button_pressed(mb_any) &amp;&amp; !collision_point(mouse_x, mouse_y, pause_button_obj, true, false);
@@ -155,18 +173,26 @@ can_crouch = true;
         }
         sprite_index = player_duck;
     }
-        
-    // reset if dead
-    if (y &gt; box_spawner_obj.pos_y + 250)
-    {
-        dead = true; 
-        move_speed = 0;
-    } 
     
-    // check if the player is falling
-    if (y &gt; box_spawner_obj.pos_y) 
+    
+    
+    if (last_block_touched != noone)
     {
-        sprite_index = player_falling;
+        y_falling = last_block_touched.y - last_block_touched.sprite_height / 4;
+        y_death = last_block_touched.y + last_block_touched.sprite_height / 4;
+
+        // reset if dead
+        if (y &gt; y_death)
+        {
+            dead = true; 
+            move_speed = 0;
+        } 
+        
+        // check if the player is falling
+        if (y &gt; y_falling)
+        {
+            sprite_index = player_falling;
+        }
     }
       
     // debugging behaviour
@@ -181,7 +207,7 @@ can_crouch = true;
         // autopilot
         if (auto_pilot)
         {
-            if (!collision_block(x + 15, y + 1) &amp;&amp; grav == 0) 
+            if (!collision_point(x + 15, y + 1, box_obj, false, false) &amp;&amp; grav == 0) 
             {        
                 jump_scr();
             }
@@ -191,6 +217,40 @@ can_crouch = true;
 else 
 {
     image_speed = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+if (global.debug_draw) 
+{
+    draw_set_color(c_red);
+    draw_line(x - feet_width / 2, y, x + feet_width / 2, y);
+    draw_line(x + sprite_width / 2, y - 25, x + sprite_width / 2, y - sprite_height);
+    
+    draw_set_color(c_blue);
+    draw_line(x - sprite_width / 2, y_falling, x + sprite_width / 2, y_falling);
+    draw_line(x - sprite_width / 2, y_death, x + sprite_width / 2, y_death);
 }
 </string>
           </argument>

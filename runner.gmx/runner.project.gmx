@@ -33,7 +33,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\spawn_blocks.gml</script>
-    <script>scripts\collision_block.gml</script>
     <script>scripts\jump_scr.gml</script>
     <script>scripts\view_set.gml</script>
     <script>scripts\draw_score_block.gml</script>
