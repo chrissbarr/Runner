@@ -144,7 +144,9 @@ if (moving == false)
     draw_set_font(button_font);
     draw_set_color(dark_brown_colour);
     var button_str = "ok";
-    draw_text(button_x - string_width(button_str) / 2, button_y - string_height(button_str) / 2, button_str);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_text(button_x, button_y, button_str);
 
     //check for mouse press
     if(mouse_check_button_pressed(mb_left)) //if pressed, check for within button...
