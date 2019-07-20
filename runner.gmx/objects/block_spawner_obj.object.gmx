@@ -61,7 +61,7 @@ blocks_spawned = 0;
     spawn_blocks(block_obj);
 }
     
-if (player_obj.points &gt; 15)
+if (game_manager_obj.points &gt; 15)
 {
     platform_max_width = 4;
 }

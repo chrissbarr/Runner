@@ -52,7 +52,7 @@
 {
     ads_disable(0);
     ads = false;
-    draw_num_spr(number_small_spr,player_obj.points, view_wview[0] / 2, sprite_get_height(number_small_spr) * 0.75);
+    draw_num_spr(number_small_spr,game_manager_obj.points, view_wview[0] / 2, sprite_get_height(number_small_spr) * 0.75);
 }   
 else
 {

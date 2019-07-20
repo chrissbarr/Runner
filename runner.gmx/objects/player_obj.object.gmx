@@ -25,25 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>first_falling = true;
-points = 0;
-grav = 2;
-jump = false;
+            <string>// movement
 move_speed = 12;
 jump_force = 18;
+
+grav = 2;
 grav_rate = 1.6;
-auto_pilot = false;
-start_x = x;
+
 crouched = false;
 can_crouch = true;
 crouch_time = room_speed * 2;
-dead = false;
+
+auto_pilot = false;
+
+// block interaction
+first_falling = true;
 feet_width = 25;
 prev_platform_num = 0;
-
 last_block_touched = noone;
+
+// y-triggers
 y_falling = room_height;
 y_death = y_falling;
+
+dead = false;
 </string>
           </argument>
         </arguments>
@@ -143,7 +148,7 @@ can_crouch = true;
         
         if (block.platform_num != prev_platform_num) 
         {
-            points += 1;
+            game_manager_obj.points += 1;
             audio_play_sound(land_snd, 1, false);
             prev_platform_num = block.platform_num;
         } 

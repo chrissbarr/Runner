@@ -110,7 +110,7 @@ draw_set_color(background_brown_colour);
 draw_rectangle(x - width / 2, y - height / 2, x + width / 2, y + height / 2, false);
 
 //draw current score and high score displays
-draw_score_block(score_spr, player_obj.points, x - width / 4);
+draw_score_block(score_spr, game_manager_obj.points, x - width / 4);
 draw_score_block(best_spr, highscore_value(1), x + width / 4);
 
 //------------------draw OK button-------------//

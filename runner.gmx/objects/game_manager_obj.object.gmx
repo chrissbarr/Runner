@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>night = -40;
+            <string>points = 0;
+
+night = -40;
 night_change = 0.05;
 
 game_speed_rate = 0.5;
@@ -102,7 +104,7 @@ if (player.dead)
     if (!instance_exists(score_screen_obj))
     {
         instance_create(0, 0, score_screen_obj);
-        highscore_add("Score", real(player.points)); 
+        highscore_add("Score", real(points)); 
         instance_deactivate_object(button_pause);
         game_speed = game_speed_default;
     }  
